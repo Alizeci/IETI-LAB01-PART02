@@ -1,14 +1,13 @@
 package edu.eci.microservices.restfulapi.dto;
 
-import java.util.Date;
+import edu.eci.microservices.restfulapi.data.Status;
 
 public class TaskDto {
     private String name;
     private String description;
-    enum status { TODO, DOING, REVIEW, DONE;}
+    Status status;
     private String assignedTo;
-    private Date dueDate;
-    private Date created;
+    private String dueDate;
 
     public String getName() {
         return name;
@@ -34,19 +33,20 @@ public class TaskDto {
         this.assignedTo = assignedTo;
     }
 
-    public Date getDueDate() {
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
 }

@@ -1,16 +1,25 @@
 package edu.eci.microservices.restfulapi.data;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Task {
 
     private String id;
     private String name;
     private String description;
-    enum status { TODO, DOING, REVIEW, DONE;}
+    Status status;
     private String assignedTo;
-    private Date dueDate;
-    private Date created;
+    private LocalDate dueDate;
+    private LocalDate created;
+
+    public Task(String name, String description, Status status, String assignedTo, LocalDate dueDate, LocalDate created) {
+        this.name = name;
+        this.description = description;
+        this.status = status;
+        this.assignedTo = assignedTo;
+        this.dueDate = dueDate;
+        this.created = created;
+    }
 
     public String getId() {
         return id;
@@ -44,19 +53,28 @@ public class Task {
         this.assignedTo = assignedTo;
     }
 
-    public Date getDueDate() {
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 
-    public Date getCreated() {
+    public LocalDate getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(LocalDate created) {
         this.created = created;
     }
+
 }
